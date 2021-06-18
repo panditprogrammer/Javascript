@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax </title>
+
+    <style>
+        .main{
+            width: 600px;
+            margin: auto;
+            overflow: auto;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="main">
+        <h1>ajax tutorial with javascript</h1>
+        <pre>
+            <p id="get_set">this is paragraph for demo.</p>
+        </pre>
+        <button id="send">send</button>
+        <button id="recieve" onclick="load_data()">recieve</button>
+    </div>
+
+    <script>
+
+        function load_data(){
+            let xhttp_request = new XMLHttpRequest();
+
+            // checking Response 
+            xhttp_request.onreadystatechange = function(){
+                // if response come form server 
+                if(this.readyState == 4 && this.status == 200){
+                    // getting the Response from server 
+                    console.log(this.responseText);
+
+                    document.getElementById("get_set").innerText = this.responseText;
+
+                } //if status is 404 
+                else if(this.readyState == 4 && this.status == 404)
+                {
+                    document.getElementById("get_set").innerText = "Unable to fetch data from server or file not found!";
+                }
+
+            }
+
+
+            // opening file 
+            xhttp_request.open('GET',"https://jsonplaceholder.typicode.com/posts",true)
+            // sending data to the server 
+            // In this case we have local server 
+            xhttp_request.send();
+
+
+        }
+
+    </script>
+
+
+
+
+</body>
+
+</html>
