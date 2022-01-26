@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advance javascript</title>
+</head>
+
+<body>
+    <h1>Advance javascript</h1>
+
+
+
+
+    <!-- 
+    <script>
+        // Symbol data type (unique value)
+        let s1 = Symbol("hello");
+        let s2 = Symbol("hello");
+
+        console.log(s1);
+        console.log(typeof s1);
+        console.log(s1=== s2); // false 
+
+        // check value of symbol 
+        console.log(s1.description);
+
+        // Symbol in object 
+        let user  = {
+            name :"hello",
+            class : "2nd",
+            [s1] : "nick name"
+
+        }
+        console.log(user);
+
+
+        // iterator of symbol
+        let x = ["first", "second", "third", "fourth"];
+
+        let iter = x[Symbol.iterator]();
+
+        console.log(iter.next());
+        console.log(iter.next());
+        console.log(iter.next());
+        console.log(iter.next());
+        console.log(iter.next());
+
+        console.log(iter.next().value);
+        console.log(iter.next().done);
+
+        // access value using while loop 
+        let result = iter.next();
+        while(!result.done){
+            console.log(result.value);
+           result =  iter.next();
+        }
+
+
+        // generator function 
+        function *testfun() {
+            console.log("line 1");
+            yield "firstline";
+
+            console.log("line 2");
+            yield "secondline";
+
+            console.log("line 3");
+            yield "thirdline";
+        }
+
+        let gen = testfun();
+        console.log(gen.next());
+        console.log(gen.next());
+
+
+        // string template 
+        let a= 100;
+        let b = `This is template string the value of a is ${a}`;
+        console.log(b);
+
+
+        // rest operator (...args)
+        function avg(str,...args){
+            console.log("string value is ",str);
+            let x =0;
+            for(let i in args)
+            x = x + args[i];
+            return x;
+        }
+
+        console.log(avg("hello",1,2,3,4));
+
+
+        // spread operator (...args)
+        function test(str, ...args) {
+            console.log("string value is ", str);
+            let x = 0;
+
+            for (let i in args)
+                x = x + args[i];
+            return x;
+
+        }
+
+        let ar = [1, 2, 3, 4, 5];
+        // // this is spread operator 
+        // console.log(test("total ",...ar));
+        // get all value using spread operator without loop from array 
+        // console.log(...ar);
+
+
+
+        // object literal 
+        let name = "programmer";
+        let pro = "developer";
+
+        // variable as key and value 
+        let obj = {
+            name,
+            pro,
+        }
+
+
+
+        let key = "nameKey";
+        // // dynamic key 
+        let obj = {
+            [key]: "this is value ",
+            age: 23,
+            pro,
+            // this is function 
+            detail: function (){
+                return `Age:- ${this.age} and Profession:- ${pro}`
+            },
+
+        //     // this is another way of function 
+            show(){
+                return `Age:- ${this.age} and Profession:- ${pro}`
+            }
+        }
+
+        // // console.log(obj.pro);
+
+        // // console.log(obj.detail());
+        // console.log(obj.show());
+
+
+
+        // // function to return an Object 
+        function student (fn,ln,a) {
+            let name = fn+ " "+ ln;
+            return {name,a};
+        }
+
+        // console.log(student("Hello","World",20));
+
+
+
+        // destructuring Array (array to variable)
+        // array 
+        let c1 = ["python", "2 months"];
+        // destructing 
+        let [course, duration] = c1;
+        // console.log(course,duration);
+
+        function getCourse() {
+            return ["javascript", 4];
+        }
+
+        // // Array to variable 
+        // let [coursej,durationj] = getCourse();
+
+        // console.log(coursej);
+        // console.log(durationj);
+
+
+
+        // destructuring object (objec to variable)
+
+        employ = {
+            emp: "rahul",
+            salary: "23000"
+        }
+
+        // let {emp,salary} = employ;
+        // console.log(emp,salary);
+
+        // let {emp:E,salary:S} = employ;
+        // console.log(E,S);
+
+
+    </script> -->
+
+    <!-- <script>
+        // javascript class and Object 
+        // NOTE:- we cannot create variable without function 
+
+        // create a class
+        class Message {
+            //this is constructor;
+            constructor(name) {
+                // this is properties 
+                this.name = name;
+                console.log("I am construtor");
+            }
+
+            // this is method 
+            hello() {
+                console.log("Hello World");
+                console.log("the value of name is ", this.name);
+            }
+
+            // this is static function 
+            static static_fun() {
+                console.log("this is static function");
+            }
+        }
+
+        // create an object 
+        // let m = new Message();
+        // m.name = "PYTHON";
+        // m.hello();
+
+        // constructor parameter 
+        let m1 = new Message("Rahul");
+        // m1.hello();
+
+        // call the static function using class name 
+        // Message.static_fun();
+
+
+
+
+        // class inheritance 
+        class Employ{
+            constructor(){
+                console.log("this is employ constructor");
+            }
+
+            detail(){
+                console.log("This is detail function from Employ");
+            }
+        }
+
+        // inherited class
+        class manager extends Employ{
+            constructor(){
+                super();  // for Employ constructor 
+                console.log("this is manager constructor");
+                super.detail();
+            }
+        }
+
+        let example = new  manager();
+        // example.detail();
+
+
+
+    </script> -->
+
+
+    <!-- module in javascript  -->
+    <!-- <script type="module" src="./main.js">
+    </script> -->
+
+
+
+    <!-- promise in javascript  -->
+    <!-- <script>
+
+        let check = true;
+
+        // this function has only one line 
+        function promFun(check) {
+
+            // return this  promise 
+            return new Promise(function (resolve, reject) {
+
+                console.log("Please wait!... we are working on it.");
+
+                // after 5 sec 
+                setTimeout(() => {
+                    if (check) {
+                        // if success 
+                        resolve("successfull");
+                    }
+                    else {
+                        // if fail 
+                        reject("Failure");
+                    }
+                }, 5000);
+
+
+            });
+
+
+        }
+
+        // on success function 
+        let OnsuccessFun = (result) => {
+            console.log(result);
+        }
+
+        // on rejection function 
+        let OnrejectFun = (result_error) => {
+            console.log(result_error);
+        }
+
+
+
+        // // if success 
+        // promFun(check).then(OnsuccessFun);
+        // // if not success 
+        // promFun(check).catch(OnrejectFun);
+
+
+        // shortcut of above line's
+        // promFun(check).then(OnsuccessFun).catch(OnrejectFun);
+
+
+
+// promise example : write a program to divide two numbers 
+
+        function promFun(a,b) {
+
+            // return this  promise 
+            return new Promise(function (resolve, reject) {
+
+                console.log("Please wait!... we are working on it.");
+
+                let c = a/b;
+                // after 5 sec 
+                setTimeout(() => {
+                    if (a,b) {
+                        // if success 
+                        resolve(`Result : ${c}`,);
+                    }
+                    else {
+                        // if fail 
+                        reject("Fail to calculate!");
+                    }
+                }, 2000);
+
+            });
+
+        }
+
+
+        // finally syntax look like this 
+        promFun(10,00).then((result) => {
+            console.log(result);
+        }).catch((result_error) => {
+            console.log(result_error);
+        });
+
+
+    </script> -->
+
+
+
+    <!-- ES6 Fetch() function (AJAX ) -->
+    <!-- <script>
+        // get the data from server 
+        // fetch("https://jsonplaceholder.typicode.com/users")
+
+        //     .then((response) => {
+        //         return response.json();// return promise
+        //     })     // return data
+
+        //     .then(data => {
+        //         console.log(data);
+        //     })
+        //     // if failed to fetch 
+        //     .catch((error)=>{
+        //         console.log("failed to fetch ");
+        //     })
+
+
+        // send data to the server 
+        let obj = {
+            title: "hell9",
+            body: "this is body",
+            userid: 1
+        }
+
+        fetch("https://jsonplaceholder.typicode.com/posts", {
+            method: "POST",
+            body: JSON.stringify(obj),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8'
+            },
+
+        })
+
+        .then((response)=>{
+            return response.json()
+        })
+
+        .then((json)=>{
+            console.log(json);
+        })
+
+
+
+
+    </script> -->
+
+
+
+    <!-- Async and Await  -->
+    <script>
+
+        // this function will return promise 
+        // async function test() {
+        //     return "hello World";
+        // }
+
+        // small version
+        // let test = async ()=> {
+        //     return "hello World";
+        // }
+
+        // too small version
+        // let test = async ()=> "hello World";
+
+        // test().then((result) => {
+        //     console.log(result);
+        // })
+
+
+
+        // async with await 
+        // async function fun1() {
+        //     console.log("this is line 1");
+        //     console.log("this is line 2");
+        //     await console.log("this is line 3");
+        //     console.log("this is line 4");
+        // }
+
+        // console.log("this is line 5");
+        // fun1();
+        // console.log("this is line 6");
+
+
+        // fetch data using async await 
+        async function test() {
+            console.log("line 2 ");
+            const response = await fetch("data.json");
+            console.log("line 3");
+            const users = await response.json();
+            return users;
+        }
+
+        console.log(" line 1");
+        // let result = test();
+        console.log("line end");
+        // console.log(result);
+
+        test().then((response) => {
+            console.log("message done ", response);
+        })
+            .catch((e) => {
+                console.log("error found ");
+            })
+
+
+    </script>
+
+</body>
+
+</html>
